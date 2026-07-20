@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ============================================
+     PROJECT TEMPLATE — duplicate this file per project.
+     Rename to e.g. wotels.html, spd-dental.html, etc.
+     Things to edit, marked EDIT ME throughout:
+       1. <title> and meta description below
+       2. Eyebrow, title, subtitle in the header
+       3. SLIDES array near the bottom — list your exported slide images
+          (export your case-study deck as PNGs, one per slide, drop them
+          in an /assets/<project-name>/ folder next to this file)
+       4. The summary paragraph and tech-stack tags
+       5. The GitHub / live-report button links
+     ============================================ -->
+<title>Wotels Case Study — Ortensa Adhamidhi</title>
+<meta name="description" content="Case study: multi-property hospitality reporting platform built on the Mews API.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2314161B'/%3E%3Crect x='24' y='55' width='12' height='24' rx='2' fill='%236C7FFF'/%3E%3Crect x='44' y='38' width='12' height='41' rx='2' fill='%23E0913F'/%3E%3Crect x='64' y='24' width='12' height='55' rx='2' fill='%236C7FFF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #14161B;
+    --bg-soft: #1C1F26;
+    --bg-card: #14161B;
+    --text: #F5F3EE;
+    --text-dim: #C9C7BE;
+    --muted: #8B8F98;
+    --line: rgba(245,243,238,0.14);
+    --accent: #7C8CFF;
+    --accent-hover: #93A0FF;
+    --accent-2: #E0913F;
+    --accent-soft: rgba(124,140,255,0.14);
+    --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+    --font-sans: 'IBM Plex Sans', -apple-system, sans-serif;
+    --max: 880px;
+    color-scheme: dark;
+  }
+  [data-theme="light"] {
+    --bg: #F7F5F0;
+    --bg-soft: #ECE9E1;
+    --bg-card: #F7F5F0;
+    --text: #17191E;
+    --text-dim: #45484E;
+    --muted: #6B6F76;
+    --line: rgba(23,25,30,0.12);
+    --accent: #4C5EEA;
+    --accent-hover: #3A4BD1;
+    --accent-2: #C97A2E;
+    --accent-soft: rgba(76,94,234,0.09);
+    color-scheme: light;
+  }
+
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+  body {
+    font-family: var(--font-sans); background: var(--bg); color: var(--text); line-height: 1.6;
+    background-image: radial-gradient(rgba(127,127,127,0.09) 1px, transparent 1px); background-size: 26px 26px;
+    -webkit-font-smoothing: antialiased;
+    transition: background 0.25s, color 0.25s;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  .interactive-card { position: relative; overflow: hidden; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; }
+  .interactive-card::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity 0.3s;
+    background: radial-gradient(220px circle at var(--mx,50%) var(--my,50%), var(--accent-soft), transparent 70%);
+  }
+  .interactive-card:hover::after { opacity: 1; }
+  .interactive-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+
+  .crumbs { padding: 20px 0; border-bottom: 1px solid var(--line); font-family: var(--font-mono); font-size: 13px; position: sticky; top: 0; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); z-index: 10; }
+  .crumbs .wrap { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .crumbs .left { display: flex; gap: 10px; color: var(--muted); }
+  .crumbs a { text-decoration: none; color: var(--text); }
+  .crumbs a:hover { color: var(--accent); }
+  .theme-toggle { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); background: var(--bg-soft); color: var(--text); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color 0.15s, transform 0.15s; flex-shrink: 0; }
+  .theme-toggle:hover { border-color: var(--accent); transform: rotate(15deg); }
+  .theme-toggle svg { width: 15px; height: 15px; }
+
+  .p-header { padding: 50px 0 32px; }
+  .p-eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; color: var(--accent-2); text-transform: uppercase; margin-bottom: 14px; }
+  h1.p-title { font-family: var(--font-mono); font-weight: 600; font-size: clamp(28px, 5vw, 40px); margin-bottom: 14px; }
+  .p-sub { color: var(--text-dim); font-size: 16px; max-width: 600px; }
+
+  .carousel { padding: 10px 0 48px; }
+  .stage { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: var(--bg); aspect-ratio: 16/9; }
+  .stage img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .stage .placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; color: var(--muted); font-family: var(--font-mono); font-size: 13px; text-align: center; padding: 20px; }
+  .nav-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: color-mix(in srgb, var(--bg) 70%, transparent); backdrop-filter: blur(4px); color: var(--text); font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s, border-color 0.15s; }
+  .nav-arrow:hover { background: var(--accent); border-color: var(--accent); color: #0E1016; }
+  .nav-prev { left: 14px; } .nav-next { right: 14px; }
+  .carousel-meta { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+  .dots { display: flex; gap: 6px; flex-wrap: wrap; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--line); border: none; cursor: pointer; padding: 0; transition: background 0.15s, transform 0.15s; }
+  .dot.active { background: var(--accent); transform: scale(1.3); }
+
+  .summary { padding: 10px 0 40px; border-top: 1px solid var(--line); }
+  .summary p { font-size: 16px; color: var(--text-dim); max-width: 680px; }
+  .summary strong { color: var(--text); font-weight: 600; }
+
+  .tech-stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 26px 0; }
+  .tech-tag { font-family: var(--font-mono); font-size: 12px; padding: 6px 12px; border-radius: 20px; border: 1px solid var(--line); color: var(--text-dim); background: var(--bg); }
+
+  .p-actions { display: flex; gap: 14px; flex-wrap: wrap; padding-bottom: 60px; }
+  .btn { font-family: var(--font-mono); font-size: 13px; padding: 12px 22px; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.15s, background 0.15s, border-color 0.15s; border: 1px solid transparent; }
+  .btn:hover { transform: translateY(-1px) rotate(-0.5deg); }
+  .btn-primary { background: var(--accent); color: #0E1016; font-weight: 600; }
+  .btn-primary:hover { background: var(--accent-hover); }
+  .btn-ghost { border-color: var(--line); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--accent); }
+
+  footer { padding: 32px 24px; text-align: center; font-family: var(--font-mono); font-size: 12px; color: var(--muted); border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+
+<div class="crumbs">
+  <div class="wrap">
+    <div class="left">
+      <a href="index.html">Ortensa Adhamidhi</a>
+      <span>/</span>
+      <a href="index.html#work">All Work</a>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark theme">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</div>
+
+<header class="p-header">
+  <div class="wrap">
+    <!-- EDIT ME: eyebrow, title, subtitle -->
+    <div class="p-eyebrow">Hospitality · Power BI · Mews API</div>
+    <h1 class="p-title">Wotels — Multi-Property Reporting</h1>
+    <p class="p-sub">A star-schema Power BI platform built on custom M code against the Mews API, with row-level security across properties. All figures shown are synthetic — no real guest or revenue data.</p>
+  </div>
+</header>
+
+<section class="carousel">
+  <div class="wrap">
+    <div class="stage" id="stage">
+      <div class="placeholder" id="placeholder">📊 Drop your exported slide images into the SLIDES array<br>near the bottom of this file to replace this placeholder.</div>
+      <img id="slideImg" alt="" style="display:none;">
+      <button class="nav-arrow nav-prev" id="prevBtn" aria-label="Previous slide">←</button>
+      <button class="nav-arrow nav-next" id="nextBtn" aria-label="Next slide">→</button>
+    </div>
+    <div class="carousel-meta">
+      <span id="counter">0 / 0</span>
+      <div class="dots" id="dots"></div>
+    </div>
+  </div>
+</section>
+
+<section class="summary">
+  <div class="wrap">
+    <!-- EDIT ME: the case-study narrative, following the problem → build → outcome shape -->
+    <p>Wotels needed multi-property visibility their booking system couldn't provide out of the box. I architected a pipeline pulling directly from the <strong>Mews API</strong> across custom M code, modeled into a star schema with dedicated fact and dimension tables, and secured with <strong>row-level security</strong> so each property manager sees only their own data. The result: a single Power BI environment serving multiple properties from one governed model instead of a patchwork of spreadsheets.</p>
+  </div>
+
+  <div class="wrap tech-stack">
+    <!-- EDIT ME: tech tags -->
+    <span class="tech-tag">Power BI</span>
+    <span class="tech-tag">Power Query (M)</span>
+    <span class="tech-tag">DAX</span>
+    <span class="tech-tag">Mews API</span>
+    <span class="tech-tag">Star Schema</span>
+    <span class="tech-tag">Row-Level Security</span>
+  </div>
+
+  <div class="wrap p-actions">
+    <!-- EDIT ME: point these at your real repo and published report -->
+    <a href="#" class="btn btn-primary">View on GitHub →</a>
+    <a href="#" class="btn btn-ghost">View live report</a>
+    <a href="index.html#work" class="btn btn-ghost">← Back to work</a>
+  </div>
+</section>
+
+<footer>© <span id="year"></span> Ortensa Adhamidhi</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Theme toggle (syncs with the same key used on the main site)
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const sunPath = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
+  const moonPath = '<path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/>';
+  function applyTheme(theme) {
+    if (theme === 'light') { document.documentElement.setAttribute('data-theme', 'light'); themeIcon.innerHTML = moonPath; }
+    else { document.documentElement.removeAttribute('data-theme'); themeIcon.innerHTML = sunPath; }
+  }
+  const stored = localStorage.getItem('ortensa-theme');
+  const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+  applyTheme(stored || (systemPrefersLight ? 'light' : 'dark'));
+  themeToggle.addEventListener('click', () => {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    const next = isLight ? 'dark' : 'light';
+    applyTheme(next);
+    localStorage.setItem('ortensa-theme', next);
+  });
+
+  // EDIT ME — list your exported slide images here, in order.
+  // Example once you have real files:
+  // const SLIDES = ['assets/wotels/01-problem.png', 'assets/wotels/02-architecture.png', ...];
+  const SLIDES = [];
+
+  const stage = document.getElementById('stage');
+  const placeholder = document.getElementById('placeholder');
+  const img = document.getElementById('slideImg');
+  const counter = document.getElementById('counter');
+  const dotsWrap = document.getElementById('dots');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  let idx = 0;
+
+  function render() {
+    if (SLIDES.length === 0) {
+      placeholder.style.display = 'flex'; img.style.display = 'none';
+      counter.textContent = '0 / 0'; prevBtn.style.display = 'none'; nextBtn.style.display = 'none'; dotsWrap.innerHTML = '';
+      return;
+    }
+    placeholder.style.display = 'none'; img.style.display = 'block';
+    img.src = SLIDES[idx]; img.alt = 'Slide ' + (idx + 1) + ' of ' + SLIDES.length;
+    counter.textContent = (idx + 1) + ' / ' + SLIDES.length;
+    prevBtn.style.display = SLIDES.length > 1 ? 'flex' : 'none';
+    nextBtn.style.display = SLIDES.length > 1 ? 'flex' : 'none';
+    dotsWrap.innerHTML = '';
+    SLIDES.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'dot' + (i === idx ? ' active' : '');
+      d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      d.addEventListener('click', () => { idx = i; render(); });
+      dotsWrap.appendChild(d);
+    });
+  }
+
+  prevBtn.addEventListener('click', () => { idx = (idx - 1 + SLIDES.length) % SLIDES.length; render(); });
+  nextBtn.addEventListener('click', () => { idx = (idx + 1) % SLIDES.length; render(); });
+  document.addEventListener('keydown', (e) => {
+    if (SLIDES.length === 0) return;
+    if (e.key === 'ArrowLeft') { idx = (idx - 1 + SLIDES.length) % SLIDES.length; render(); }
+    if (e.key === 'ArrowRight') { idx = (idx + 1) % SLIDES.length; render(); }
+  });
+
+  render();
+</script>
+
+</body>
+</html>
