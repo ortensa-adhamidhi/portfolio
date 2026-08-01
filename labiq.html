@@ -3,20 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- ============================================
-     PROJECT TEMPLATE — duplicate this file per project.
-     Rename to e.g. wotels.html, spd-dental.html, etc.
-     Things to edit, marked EDIT ME throughout:
-       1. <title> and meta description below
-       2. Eyebrow, title, subtitle in the header
-       3. SLIDES array near the bottom — list your exported slide images
-          (export your case-study deck as PNGs, one per slide, drop them
-          in an /assets/<project-name>/ folder next to this file)
-       4. The summary paragraph and tech-stack tags
-       5. The GitHub / live-report button links
-     ============================================ -->
-<title>Clinical Lab Network TAT Analytics — Ortensa Adhamidhi</title>
-<meta name="description" content="Case study: turnaround-time and operations analytics for a multi-site clinical laboratory network, built in Tableau on a custom SQL data model.">
+<title>LAB IQ Case Study — Ortensa Adhamidhi</title>
+<meta name="description" content="Case study: multi-branch laboratory analytics platform built in Tableau with role-based row-level security.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2314161B'/%3E%3Crect x='24' y='55' width='12' height='24' rx='2' fill='%236C7FFF'/%3E%3Crect x='44' y='38' width='12' height='41' rx='2' fill='%23E0913F'/%3E%3Crect x='64' y='24' width='12' height='55' rx='2' fill='%236C7FFF'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -87,25 +75,35 @@
   .p-header { padding: 50px 0 32px; }
   .p-eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; color: var(--accent-2); text-transform: uppercase; margin-bottom: 14px; }
   h1.p-title { font-family: var(--font-mono); font-weight: 600; font-size: clamp(28px, 5vw, 40px); margin-bottom: 14px; }
-  .p-sub { color: var(--text-dim); font-size: 16px; max-width: 600px; }
+  .p-sub { color: var(--text-dim); font-size: 16px; max-width: 620px; }
 
-  .carousel { padding: 10px 0 48px; }
-  .stage { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: var(--bg); aspect-ratio: 16/9; }
-  .stage img { width: 100%; height: 100%; object-fit: contain; display: block; }
-  .stage .placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; color: var(--muted); font-family: var(--font-mono); font-size: 13px; text-align: center; padding: 20px; }
-  .nav-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: color-mix(in srgb, var(--bg) 70%, transparent); backdrop-filter: blur(4px); color: var(--text); font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s, border-color 0.15s; }
-  .nav-arrow:hover { background: var(--accent); border-color: var(--accent); color: #0E1016; }
-  .nav-prev { left: 14px; } .nav-next { right: 14px; }
-  .carousel-meta { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
-  .dots { display: flex; gap: 6px; flex-wrap: wrap; }
-  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--line); border: none; cursor: pointer; padding: 0; transition: background 0.15s, transform 0.15s; }
-  .dot.active { background: var(--accent); transform: scale(1.3); }
+  /* ---------- Narrative sections (replaces carousel — text-only case study) ---------- */
+  .case-section { padding: 6px 0 40px; border-top: 1px solid var(--line); }
+  .case-section:first-of-type { border-top: none; padding-top: 10px; }
+  .case-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .case-heading { font-family: var(--font-mono); font-size: 19px; font-weight: 600; margin-bottom: 14px; }
+  .case-section p { font-size: 15px; color: var(--text-dim); max-width: 680px; }
+  .case-section p + p { margin-top: 12px; }
+  .case-section strong { color: var(--text); font-weight: 600; }
+  .case-section ul { margin-top: 14px; max-width: 680px; }
+  .case-section li { list-style: none; position: relative; padding-left: 20px; font-size: 15px; color: var(--text-dim); margin-bottom: 10px; }
+  .case-section li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+  .case-section li strong { display: block; color: var(--text); font-weight: 600; margin-bottom: 2px; }
 
-  .summary { padding: 10px 0 40px; border-top: 1px solid var(--line); }
-  .summary p { font-size: 16px; color: var(--text-dim); max-width: 680px; }
-  .summary strong { color: var(--text); font-weight: 600; }
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin-top: 20px; max-width: 700px; }
+  .stat-box { background: var(--bg-card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; }
+  .stat-num { font-family: var(--font-mono); font-size: 21px; font-weight: 600; color: var(--accent); }
+  .stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
 
-  .tech-stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 26px 0; }
+  .role-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-top: 18px; max-width: 700px; }
+  .role-card { background: var(--bg-card); border: 1px solid var(--line); border-radius: 10px; padding: 18px; }
+  .role-card .role-name { font-family: var(--font-mono); font-size: 13px; color: var(--accent); margin-bottom: 8px; }
+  .role-card p { font-size: 13px; color: var(--text-dim); }
+
+  .dash-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; max-width: 700px; }
+  .dash-tag { font-family: var(--font-mono); font-size: 12px; padding: 6px 12px; border-radius: 20px; border: 1px solid var(--line); color: var(--text-dim); background: var(--bg-soft); }
+
+  .tech-stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 6px 0 40px; }
   .tech-tag { font-family: var(--font-mono); font-size: 12px; padding: 6px 12px; border-radius: 20px; border: 1px solid var(--line); color: var(--text-dim); background: var(--bg); }
 
   .p-actions { display: flex; gap: 14px; flex-wrap: wrap; padding-bottom: 60px; }
@@ -136,49 +134,93 @@
 
 <header class="p-header">
   <div class="wrap">
-    <!-- EDIT ME: eyebrow, title, subtitle -->
-    <div class="p-eyebrow">Healthcare · Clinical Laboratory Network · Tableau + SQL</div>
-    <h1 class="p-title">Clinical Lab Network — Turnaround Time & Operations Analytics</h1>
-    <p class="p-sub">A Tableau reporting suite tracking sample rejection, approval time, and turnaround time (TAT) across dozens of labs and collection points, built on SQL tables designed alongside the client's in-house developers. All figures shown are synthetic — no real patient or clinical data.</p>
+    <div class="p-eyebrow">Healthcare · Tableau · Multi-Branch Laboratory Network</div>
+    <h1 class="p-title">LAB IQ — Multi-Branch Laboratory Analytics</h1>
+    <p class="p-sub">A seven-dashboard Tableau reporting suite for a national laboratory network, built with role-based row-level security so doctors, branch managers, and executives each see exactly the data their role requires.</p>
   </div>
 </header>
 
-<section class="carousel">
-  <div class="wrap">
-    <div class="stage" id="stage">
-      <div class="placeholder" id="placeholder">📊 Drop your exported slide images into the SLIDES array<br>near the bottom of this file to replace this placeholder.</div>
-      <img id="slideImg" alt="" style="display:none;">
-      <button class="nav-arrow nav-prev" id="prevBtn" aria-label="Previous slide">←</button>
-      <button class="nav-arrow nav-next" id="nextBtn" aria-label="Next slide">→</button>
-    </div>
-    <div class="carousel-meta">
-      <span id="counter">0 / 0</span>
-      <div class="dots" id="dots"></div>
-    </div>
-  </div>
-</section>
+<section class="wrap">
 
-<section class="summary">
-  <div class="wrap">
-    <!-- EDIT ME: the case-study narrative, following the problem → build → outcome shape -->
-    <p>A Turkish clinical laboratory chain running dozens of labs and sample-collection points had no consolidated way to monitor turnaround time (TAT), sample rejection, or workload across sites — each location's performance lived in its own silo. I worked directly with the client's development team to design the <strong>SQL logic</strong> pulling patient, sample, and test-level data out of their LIS into the exact table shapes the reporting layer needed, then built a full <strong>Tableau</strong> suite on top: sample acceptance and rejection-reason breakdowns, approval-time and TAT drill-downs by test, lab, and hour of day, cross-lab benchmarking against TAT targets, month-over-month trend tracking, and a workload view spanning requesting institutions and collection points. Across the connected sites the model tracks upward of <strong>12.9 million tests</strong> and <strong>1.2 million patients</strong>, giving lab management a single place to see where TAT targets were being missed and why — down to the specific test, hour, and location.</p>
+  <div class="case-section">
+    <div class="case-label">01 / The Challenge</div>
+    <h2 class="case-heading">Turnaround time was invisible above the branch level</h2>
+    <p>LAB IQ operates a large laboratory network across <strong>25+ branches</strong> nationwide, processing over <strong>12 million tests</strong> a year across routine and urgent workflows. Each branch could see its own results, but nobody had a consolidated view of turnaround time (TAT) performance, sample rejection patterns, or workload distribution across the network.</p>
+    <p>On top of that, reporting access needed to respect a strict clinical hierarchy: <strong>doctors</strong> should only ever see their own patients' data, <strong>branch managers</strong> should see their own branch's operational metrics, and <strong>senior/overall managers</strong> need full network-wide visibility to compare branches and spot systemic bottlenecks — all from the same underlying model, without duplicating dashboards per role.</p>
   </div>
 
-  <div class="wrap tech-stack">
-    <!-- EDIT ME: tech tags -->
+  <div class="case-section">
+    <div class="case-label">02 / Approach</div>
+    <h2 class="case-heading">A governed model with role-based access built in</h2>
+    <p>I built a Tableau reporting suite of seven interconnected dashboards on top of the laboratory information system, modeled around the metrics that actually drive operational decisions: turnaround time against target, sample acceptance and rejection, approval automation rates, and workload distribution by branch, test group, and referring source.</p>
+    <p>Row-level security was implemented so a single published data source powers every role's view:</p>
+    <div class="role-grid">
+      <div class="role-card interactive-card">
+        <div class="role-name">👨‍⚕️ Doctors</div>
+        <p>See only the tests and results tied to their own patients — no visibility into other providers' cases or branch-wide figures.</p>
+      </div>
+      <div class="role-card interactive-card">
+        <div class="role-name">🏥 Branch Managers</div>
+        <p>See full operational detail for their own branch — TAT, rejection rates, workload — with no access to other branches' data.</p>
+      </div>
+      <div class="role-card interactive-card">
+        <div class="role-name">📊 Overall Managers</div>
+        <p>See network-wide performance across all branches, with side-by-side comparison to identify outliers and systemic issues.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-section">
+    <div class="case-label">03 / What's In the Suite</div>
+    <h2 class="case-heading">Seven dashboards covering the full testing lifecycle</h2>
+    <p>From sample intake through result approval, each stage of the lab workflow has a dedicated view:</p>
+    <ul>
+      <li><strong>Sample Acceptance Analysis</strong> — rejection rates by reason and referring source, tracked against a network-wide target</li>
+      <li><strong>Workload Analysis</strong> — test volume by branch, test group, and referring institution, with hourly/daily load heatmaps</li>
+      <li><strong>TAT Analysis &amp; TAT Detail Analysis</strong> — turnaround time against routine and urgent targets, broken down by test, hour, and day of week</li>
+      <li><strong>Duration Comparison</strong> — month-over-month TAT trends and delay-rate trends by test group</li>
+      <li><strong>Laboratory Comparison</strong> — side-by-side branch benchmarking on TAT, volume, and target attainment</li>
+      <li><strong>Approval Analysis</strong> — automated vs. manual approval rates, broken down by test group and urgency</li>
+    </ul>
+    <div class="dash-list">
+      <span class="dash-tag">Onay Analizi</span>
+      <span class="dash-tag">Laboratuvar Karşılaştırma</span>
+      <span class="dash-tag">Örnek Kabul Analizi</span>
+      <span class="dash-tag">TAT Analizi</span>
+      <span class="dash-tag">TAT Detay Analiz</span>
+      <span class="dash-tag">Süre Karşılaştırma</span>
+      <span class="dash-tag">İş Yükü Analizi</span>
+    </div>
+  </div>
+
+  <div class="case-section">
+    <div class="case-label">04 / Result</div>
+    <h2 class="case-heading">Network-wide visibility, without breaking access boundaries</h2>
+    <p>The network now runs on a single governed reporting layer instead of siloed, branch-level views — with routine TAT targets met <strong>99.2%</strong> of the time and urgent TAT targets met <strong>94.4%</strong> of the time, both now visible and comparable across every branch. Sample rejection sits at roughly <strong>1.2%</strong> of submitted samples, broken down by reason and source so branches can act on the biggest drivers first. Full write-up and screenshots are in the linked repository.</p>
+    <div class="stat-grid">
+      <div class="stat-box"><div class="stat-num">12.9M+</div><div class="stat-label">Tests processed</div></div>
+      <div class="stat-box"><div class="stat-num">25+</div><div class="stat-label">Branches unified</div></div>
+      <div class="stat-box"><div class="stat-num">99.2%</div><div class="stat-label">Routine TAT target met</div></div>
+      <div class="stat-box"><div class="stat-num">94.4%</div><div class="stat-label">Urgent TAT target met</div></div>
+      <div class="stat-box"><div class="stat-num">3</div><div class="stat-label">Role-based access tiers</div></div>
+    </div>
+  </div>
+
+  <div class="wrap tech-stack" style="padding-left:0;padding-right:0;">
     <span class="tech-tag">Tableau</span>
+    <span class="tech-tag">Row-Level Security</span>
+    <span class="tech-tag">Multi-Branch Reporting</span>
+    <span class="tech-tag">TAT / SLA Analytics</span>
+    <span class="tech-tag">Laboratory Information System</span>
     <span class="tech-tag">SQL</span>
-    <span class="tech-tag">LIS Data Modeling</span>
-    <span class="tech-tag">TAT / KPI Design</span>
-    <span class="tech-tag">Multi-Site Reporting</span>
-    <span class="tech-tag">Healthcare Analytics</span>
   </div>
 
-  <div class="wrap p-actions">
-    <!-- EDIT ME: point these at your real repo and published report -->
-
+  <div class="p-actions" style="border-top:1px solid var(--line);padding-top:34px;">
+   
+    <a href="https://github.com/ortensa-adhamidhi/labiq/tree/main/dashboards" class="btn btn-primary">View dashboards on GitHub →</a>
     <a href="index.html#work" class="btn btn-ghost">← Back to work</a>
   </div>
+
 </section>
 
 <footer>© <span id="year"></span> Ortensa Adhamidhi</footer>
@@ -186,7 +228,6 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Theme toggle (syncs with the same key used on the main site)
   const themeToggle = document.getElementById('themeToggle');
   const themeIcon = document.getElementById('themeIcon');
   const sunPath = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
@@ -205,58 +246,16 @@
     localStorage.setItem('ortensa-theme', next);
   });
 
-  // EDIT ME — list your exported slide images here, in order.
-  // Example once you have real files:
-  // const SLIDES = ['assets/wotels/01-problem.png', 'assets/wotels/02-architecture.png', ...];
-  const SLIDES = [
-    'assets/clinical-lab-tat/Sample_Acceptance.png',
-    'assets/clinical-lab-tat/TAT_Analizi.png',
-    'assets/clinical-lab-tat/TAT_Detay_Analiz.png',
-    'assets/clinical-lab-tat/Approval_Analysis.png',
-    'assets/clinical-lab-tat/Laboratory_Comparison.png',
-    'assets/clinical-lab-tat/Trend_Analysis.png',
-    'assets/clinical-lab-tat/Workload_Analysis.png'
-  ];
-
-  const stage = document.getElementById('stage');
-  const placeholder = document.getElementById('placeholder');
-  const img = document.getElementById('slideImg');
-  const counter = document.getElementById('counter');
-  const dotsWrap = document.getElementById('dots');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  let idx = 0;
-
-  function render() {
-    if (SLIDES.length === 0) {
-      placeholder.style.display = 'flex'; img.style.display = 'none';
-      counter.textContent = '0 / 0'; prevBtn.style.display = 'none'; nextBtn.style.display = 'none'; dotsWrap.innerHTML = '';
-      return;
-    }
-    placeholder.style.display = 'none'; img.style.display = 'block';
-    img.src = SLIDES[idx]; img.alt = 'Slide ' + (idx + 1) + ' of ' + SLIDES.length;
-    counter.textContent = (idx + 1) + ' / ' + SLIDES.length;
-    prevBtn.style.display = SLIDES.length > 1 ? 'flex' : 'none';
-    nextBtn.style.display = SLIDES.length > 1 ? 'flex' : 'none';
-    dotsWrap.innerHTML = '';
-    SLIDES.forEach((_, i) => {
-      const d = document.createElement('button');
-      d.className = 'dot' + (i === idx ? ' active' : '');
-      d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-      d.addEventListener('click', () => { idx = i; render(); });
-      dotsWrap.appendChild(d);
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReduced) {
+    document.querySelectorAll('.interactive-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100) + '%');
+        card.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100) + '%');
+      });
     });
   }
-
-  prevBtn.addEventListener('click', () => { idx = (idx - 1 + SLIDES.length) % SLIDES.length; render(); });
-  nextBtn.addEventListener('click', () => { idx = (idx + 1) % SLIDES.length; render(); });
-  document.addEventListener('keydown', (e) => {
-    if (SLIDES.length === 0) return;
-    if (e.key === 'ArrowLeft') { idx = (idx - 1 + SLIDES.length) % SLIDES.length; render(); }
-    if (e.key === 'ArrowRight') { idx = (idx + 1) % SLIDES.length; render(); }
-  });
-
-  render();
 </script>
 
 </body>
