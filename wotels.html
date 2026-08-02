@@ -3,18 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- ============================================
-     PROJECT TEMPLATE — duplicate this file per project.
-     Rename to e.g. wotels.html, spd-dental.html, etc.
-     Things to edit, marked EDIT ME throughout:
-       1. <title> and meta description below
-       2. Eyebrow, title, subtitle in the header
-       3. SLIDES array near the bottom — list your exported slide images
-          (export your case-study deck as PNGs, one per slide, drop them
-          in an /assets/<project-name>/ folder next to this file)
-       4. The summary paragraph and tech-stack tags
-       5. The GitHub / live-report button links
-     ============================================ -->
 <title>Wotels Case Study — Ortensa Adhamidhi</title>
 <meta name="description" content="Case study: multi-property hospitality reporting platform unifying the Mews API, Primavera ERP (via SQL), and Excel budgets into one governed Power BI environment.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2314161B'/%3E%3Crect x='24' y='55' width='12' height='24' rx='2' fill='%236C7FFF'/%3E%3Crect x='44' y='38' width='12' height='41' rx='2' fill='%23E0913F'/%3E%3Crect x='64' y='24' width='12' height='55' rx='2' fill='%236C7FFF'/%3E%3C/svg%3E">
@@ -87,26 +75,47 @@
   .p-header { padding: 50px 0 32px; }
   .p-eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; color: var(--accent-2); text-transform: uppercase; margin-bottom: 14px; }
   h1.p-title { font-family: var(--font-mono); font-weight: 600; font-size: clamp(28px, 5vw, 40px); margin-bottom: 14px; }
-  .p-sub { color: var(--text-dim); font-size: 16px; max-width: 600px; }
+  .p-sub { color: var(--text-dim); font-size: 16px; max-width: 620px; }
 
-  .carousel { padding: 10px 0 48px; }
-  .stage { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: var(--bg); aspect-ratio: 16/9; }
-  .stage img { width: 100%; height: 100%; object-fit: contain; display: block; }
-  .stage .placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; color: var(--muted); font-family: var(--font-mono); font-size: 13px; text-align: center; padding: 20px; }
-  .nav-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: color-mix(in srgb, var(--bg) 70%, transparent); backdrop-filter: blur(4px); color: var(--text); font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s, border-color 0.15s; }
-  .nav-arrow:hover { background: var(--accent); border-color: var(--accent); color: #0E1016; }
-  .nav-prev { left: 14px; } .nav-next { right: 14px; }
-  .carousel-meta { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
-  .dots { display: flex; gap: 6px; flex-wrap: wrap; }
-  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--line); border: none; cursor: pointer; padding: 0; transition: background 0.15s, transform 0.15s; }
-  .dot.active { background: var(--accent); transform: scale(1.3); }
+  /* ---------- Narrative sections (same pattern as LAB IQ / SPD Dental) ---------- */
+  .case-section { padding: 6px 0 40px; border-top: 1px solid var(--line); }
+  .case-section:first-of-type { border-top: none; padding-top: 10px; }
+  .case-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .case-heading { font-family: var(--font-mono); font-size: 19px; font-weight: 600; margin-bottom: 14px; }
+  .case-section p { font-size: 15px; color: var(--text-dim); max-width: 680px; }
+  .case-section p + p { margin-top: 12px; }
+  .case-section strong { color: var(--text); font-weight: 600; }
+  .case-section ul { margin-top: 14px; max-width: 680px; }
+  .case-section li { list-style: none; position: relative; padding-left: 20px; font-size: 15px; color: var(--text-dim); margin-bottom: 10px; }
+  .case-section li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+  .case-section li strong { display: block; color: var(--text); font-weight: 600; margin-bottom: 2px; }
 
-  .summary { padding: 10px 0 40px; border-top: 1px solid var(--line); }
-  .summary p { font-size: 16px; color: var(--text-dim); max-width: 680px; }
-  .summary strong { color: var(--text); font-weight: 600; }
+  .sub-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 28px 0 4px; }
+  .sub-label:first-of-type { margin-top: 20px; }
 
-  .tech-stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 26px 0; }
+  /* ---------- Dashboard screenshots, shown inline instead of a carousel ---------- */
+  .case-image { margin: 10px 0 4px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--bg-soft); }
+  .case-image img { width: 100%; display: block; }
+  .case-image-caption { font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin: 8px 0 22px; }
+
+  /* ---------- Compact data model diagram (SVG, not ASCII) ---------- */
+  .diagram-box { margin: 22px 0 8px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg-card); padding: 20px; }
+  .diagram-box svg { width: 100%; height: auto; display: block; }
+  .dg-rect { fill: var(--bg-soft); stroke: var(--line); stroke-width: 1; }
+  .dg-line { stroke: var(--line); stroke-width: 1.3; fill: none; }
+  .dg-label { font-family: var(--font-mono); font-size: 11.5px; text-anchor: middle; dominant-baseline: middle; }
+  .dg-fact { fill: var(--accent); font-weight: 600; }
+  .dg-dim { fill: var(--text-dim); font-weight: 600; }
+  .diagram-legend { display: flex; gap: 18px; margin-top: 14px; font-family: var(--font-mono); font-size: 11.5px; color: var(--muted); }
+  .diagram-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .diagram-legend .dot { width: 8px; height: 8px; border-radius: 2px; }
+  .diagram-legend .dot.fact { background: var(--accent); }
+  .diagram-legend .dot.dim { background: var(--text-dim); }
+
+  .tech-stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 6px 0 30px; }
   .tech-tag { font-family: var(--font-mono); font-size: 12px; padding: 6px 12px; border-radius: 20px; border: 1px solid var(--line); color: var(--text-dim); background: var(--bg); }
+
+  .pbix-note { font-size: 13px; color: var(--muted); max-width: 680px; margin-bottom: 20px; }
 
   .p-actions { display: flex; gap: 14px; flex-wrap: wrap; padding-bottom: 60px; }
   .btn { font-family: var(--font-mono); font-size: 13px; padding: 12px 22px; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.15s, background 0.15s, border-color 0.15s; border: 1px solid transparent; }
@@ -136,38 +145,134 @@
 
 <header class="p-header">
   <div class="wrap">
-    <!-- EDIT ME: eyebrow, title, subtitle -->
     <div class="p-eyebrow">Hospitality · Power BI · Mews API + Primavera ERP</div>
     <h1 class="p-title">Wotels — Multi-Property Reporting</h1>
     <p class="p-sub">A star-schema Power BI platform unifying three data sources: live occupancy from the Mews API, finance actuals from Primavera ERP via SQL, and budgets from Excel. All flows into one governed, role-secured reporting environment across 18 properties and head office. The figures shown are synthetic; no real guest, revenue, or financial data.</p>
   </div>
 </header>
 
-<section class="carousel">
-  <div class="wrap">
-    <div class="stage" id="stage">
-      <div class="placeholder" id="placeholder">📊 Drop your exported slide images into the SLIDES array<br>near the bottom of this file to replace this placeholder.</div>
-      <img id="slideImg" alt="" style="display:none;">
-      <button class="nav-arrow nav-prev" id="prevBtn" aria-label="Previous slide">←</button>
-      <button class="nav-arrow nav-next" id="nextBtn" aria-label="Next slide">→</button>
-    </div>
-    <div class="carousel-meta">
-      <span id="counter">0 / 0</span>
-      <div class="dots" id="dots"></div>
-    </div>
-  </div>
-</section>
+<section class="wrap">
 
-<section class="summary">
-  <div class="wrap">
-    <!-- EDIT ME: the case-study narrative, following the problem → build → outcome shape -->
-    <p>Wotels runs 18 properties plus a head-office overhead structure, but each side of the business lived in a different system: live occupancy in their <strong>Mews</strong> PMS, actual financial results in <strong>Primavera ERP</strong>, and budgets in Excel. There was no single place to see Actual vs. Budget vs. Last Year across a property, a department, or the whole portfolio.</p>
-    <p>I built a star-schema Power BI model that pulls all three sources together: custom <strong>Power Query (M)</strong> functions call the Mews API directly for daily occupancy by property, a <strong>SQL Server</strong> connection pulls P&L actuals from Primavera, and the Excel-based budget feeds the same fact table on a shared Date/Cost Center/Unit grain. On top of that sit <strong>DAX</strong> measures for variance, YTD, and prior-year comparisons, and <strong>row-level security</strong> so each property manager and department head sees only their own numbers.</p>
-    <p>The result is five linked reports — a portfolio KPI dashboard, Units and Overhead P&L statements, drill-down variance reports, and executive summaries — replacing a manual monthly close that used to mean reconciling exports from three systems by hand.</p>
+  <div class="case-section">
+    <div class="case-label">01 / The Challenge</div>
+    <h2 class="case-heading">Three systems, no single source of truth</h2>
+    <p>Wotels runs 18 properties plus a head-office overhead structure, but each side of the business lived in a different system. Live occupancy sat in their <strong>Mews</strong> PMS, actual financial results sat in <strong>Primavera ERP</strong>, and budgets sat in Excel. There was no single place to see Actual vs. Budget vs. Last Year across a property, a department, or the whole portfolio.</p>
+    <p>Every month-end close meant reconciling exports from three systems by hand, with no automated variance or drill-down.</p>
   </div>
 
-  <div class="wrap tech-stack">
-    <!-- EDIT ME: tech tags -->
+  <div class="case-section">
+    <div class="case-label">02 / Approach</div>
+    <h2 class="case-heading">One star-schema model, three source systems</h2>
+    <p>I built a star-schema Power BI model that pulls all three sources together. Custom <strong>Power Query (M)</strong> functions call the Mews API directly for daily occupancy by property, a <strong>SQL Server</strong> connection pulls P&amp;L actuals from Primavera, and the Excel-based budget feeds the same fact table on a shared Date, Cost Center, and Unit grain.</p>
+    <p>DAX measures on top handle variance, YTD, and prior-year comparisons, and row-level security means each property manager and department head sees only their own numbers.</p>
+
+    <div class="diagram-box">
+      <svg viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg">
+        <!-- DateTable stem -->
+        <line class="dg-line" x1="380" y1="44" x2="380" y2="60"/>
+        <!-- horizontal spine across the four fact columns -->
+        <line class="dg-line" x1="95" y1="60" x2="680" y2="60"/>
+        <!-- drops into each fact table -->
+        <line class="dg-line" x1="95" y1="60" x2="95" y2="80"/>
+        <line class="dg-line" x1="290" y1="60" x2="290" y2="80"/>
+        <line class="dg-line" x1="485" y1="60" x2="485" y2="80"/>
+        <line class="dg-line" x1="680" y1="60" x2="680" y2="80"/>
+
+        <!-- Movimentos + OccupancyByPeriod merge down into Units -->
+        <line class="dg-line" x1="95" y1="114" x2="95" y2="150"/>
+        <line class="dg-line" x1="290" y1="114" x2="290" y2="150"/>
+        <line class="dg-line" x1="95" y1="150" x2="290" y2="150"/>
+        <line class="dg-line" x1="193" y1="150" x2="193" y2="170"/>
+
+        <!-- Budget down into Cost Centers -->
+        <line class="dg-line" x1="485" y1="114" x2="485" y2="170"/>
+        <!-- Statistics down into Beds -->
+        <line class="dg-line" x1="680" y1="114" x2="680" y2="170"/>
+
+        <!-- DateTable -->
+        <rect class="dg-rect" x="310" y="10" width="140" height="34" rx="6"/>
+        <text class="dg-label dg-dim" x="380" y="28">DateTable</text>
+
+        <!-- fact row -->
+        <rect class="dg-rect" x="15" y="80" width="160" height="34" rx="6"/>
+        <text class="dg-label dg-fact" x="95" y="98">Movimentos</text>
+
+        <rect class="dg-rect" x="210" y="80" width="160" height="34" rx="6"/>
+        <text class="dg-label dg-fact" x="290" y="98">OccupancyByPeriod</text>
+
+        <rect class="dg-rect" x="405" y="80" width="160" height="34" rx="6"/>
+        <text class="dg-label dg-fact" x="485" y="98">Budget</text>
+
+        <rect class="dg-rect" x="600" y="80" width="160" height="34" rx="6"/>
+        <text class="dg-label dg-fact" x="680" y="98">Statistics</text>
+
+        <!-- dimension row -->
+        <rect class="dg-rect" x="113" y="170" width="160" height="34" rx="6"/>
+        <text class="dg-label dg-dim" x="193" y="188">Units</text>
+
+        <rect class="dg-rect" x="405" y="170" width="160" height="34" rx="6"/>
+        <text class="dg-label dg-dim" x="485" y="188">Cost Centers</text>
+
+        <rect class="dg-rect" x="600" y="170" width="160" height="34" rx="6"/>
+        <text class="dg-label dg-dim" x="680" y="188">Beds</text>
+      </svg>
+      <div class="diagram-legend">
+        <span><span class="dot fact"></span> Fact table</span>
+        <span><span class="dot dim"></span> Dimension table</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-section">
+    <div class="case-label">03 / What's In The Platform</div>
+    <h2 class="case-heading">Seven report pages on one semantic model</h2>
+    <p>One KPI dashboard, paired monthly and variance views for both Units and Overhead P&amp;L, and two executive summary dashboards, all built on the same underlying model:</p>
+
+    <div class="sub-label">KPI Dashboard</div>
+    <div class="case-image">
+      <!-- EDIT ME: confirm this filename matches your repo -->
+      <img src="https://raw.githubusercontent.com/ortensa-adhamidhi/wotels/main/assets/Wotels%20-%20portfolio%20file-1.png" alt="Wotels portfolio KPI dashboard">
+    </div>
+    <div class="case-image-caption">Portfolio-level KPIs across all 18 properties, synthetic data</div>
+
+    <div class="sub-label">Units P&amp;L</div>
+    <div class="case-image">
+      <img src="https://raw.githubusercontent.com/ortensa-adhamidhi/wotels/main/assets/Wotels%20-%20portfolio%20file-2.png" alt="Wotels units P&L monthly overview">
+    </div>
+    <div class="case-image-caption">Monthly overview, actuals by property and department</div>
+    <div class="case-image">
+      <img src="https://raw.githubusercontent.com/ortensa-adhamidhi/wotels/main/assets/Wotels%20-%20portfolio%20file-3.png" alt="Wotels units P&L budget and YTD comparison">
+    </div>
+    <div class="case-image-caption">Actual vs. Budget vs. Last Year, with YTD roll-ups</div>
+
+    <div class="sub-label">Overhead P&amp;L</div>
+    <div class="case-image">
+      <img src="https://raw.githubusercontent.com/ortensa-adhamidhi/wotels/main/assets/Wotels%20-%20portfolio%20file-4.png" alt="Wotels overhead P&L monthly overview">
+    </div>
+    <div class="case-image-caption">Monthly overview, head-office cost centers</div>
+    <div class="case-image">
+      <img src="https://raw.githubusercontent.com/ortensa-adhamidhi/wotels/main/assets/Wotels%20-%20portfolio%20file-5.png" alt="Wotels overhead P&L budget and YTD comparison">
+    </div>
+    <div class="case-image-caption">Actual vs. Budget vs. Last Year, with YTD roll-ups</div>
+
+    <div class="sub-label">Executive Summaries</div>
+    <div class="case-image">
+      <img src="https://raw.githubusercontent.com/ortensa-adhamidhi/wotels/main/assets/Wotels%20-%20portfolio%20file-6.png" alt="Wotels units executive summary dashboard">
+    </div>
+    <div class="case-image-caption">Units Summary, roll-up view for leadership</div>
+    <div class="case-image">
+      <img src="https://raw.githubusercontent.com/ortensa-adhamidhi/wotels/main/assets/Wotels%20-%20portfolio%20file-7.png" alt="Wotels overhead executive summary dashboard">
+    </div>
+    <div class="case-image-caption">Overhead Summary, roll-up view for leadership</div>
+  </div>
+
+  <div class="case-section">
+    <div class="case-label">04 / Result</div>
+    <h2 class="case-heading">One governed model instead of three systems</h2>
+    <p>The result is a single governed Power BI environment: a portfolio KPI dashboard, monthly and variance views for Units and Overhead P&amp;L, and two executive summaries, all sitting on one semantic model with row-level security by property and department. What used to be a manual, three-system month-end close now runs from one place.</p>
+  </div>
+
+  <div class="wrap tech-stack" style="padding-left:0;padding-right:0;">
     <span class="tech-tag">Power BI</span>
     <span class="tech-tag">Power Query (M)</span>
     <span class="tech-tag">DAX</span>
@@ -178,11 +283,14 @@
     <span class="tech-tag">Multi-Source Integration</span>
   </div>
 
-  <div class="wrap p-actions">
-    <a href="https://github.com/ortensa-adhamidhi/wotels" class="btn btn-primary" target="_blank" rel="noopener">View on GitHub →</a>
-     
-    <a href="index.html#work" class="btn btn-ghost">← Back to work</a>
+  <div style="border-top:1px solid var(--line);padding-top:30px;">
+    <p class="pbix-note">The full .pbix file is available on request while this case study is being finished.</p>
+    <div class="p-actions" style="padding-bottom:60px;">
+      <a href="https://github.com/ortensa-adhamidhi/wotels" class="btn btn-primary" target="_blank" rel="noopener">View on GitHub →</a>
+      <a href="index.html#work" class="btn btn-ghost">← Back to work</a>
+    </div>
   </div>
+
 </section>
 
 <footer>© <span id="year"></span> Ortensa Adhamidhi</footer>
@@ -190,7 +298,6 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Theme toggle (syncs with the same key used on the main site)
   const themeToggle = document.getElementById('themeToggle');
   const themeIcon = document.getElementById('themeIcon');
   const sunPath = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
@@ -209,60 +316,16 @@
     localStorage.setItem('ortensa-theme', next);
   });
 
- 
-// EDIT ME — list your exported slide images here, in order.
-const SLIDES = [
-  'https://raw.githubusercontent.com/ortensa-adhamidhi/wotels/main/assets/Wotels/Wotels_Case_Study-1.png',
-  'https://raw.githubusercontent.com/ortensa-adhamidhi/wotels/main/assets/Wotels/Wotels_Case_Study-2.png',
-  'https://raw.githubusercontent.com/ortensa-adhamidhi/wotels/main/assets/Wotels/Wotels_Case_Study-3.png',
-  'https://raw.githubusercontent.com/ortensa-adhamidhi/wotels/main/assets/Wotels/Wotels_Case_Study-4.png',
-  'https://raw.githubusercontent.com/ortensa-adhamidhi/wotels/main/assets/Wotels/Wotels_Case_Study-5.png',
-  'https://raw.githubusercontent.com/ortensa-adhamidhi/wotels/main/assets/Wotels/Wotels_Case_Study-6.png',
-  'https://raw.githubusercontent.com/ortensa-adhamidhi/wotels/main/assets/Wotels/Wotels_Case_Study-7.png',
-  'https://raw.githubusercontent.com/ortensa-adhamidhi/wotels/main/assets/Wotels/Wotels_Case_Study-8.png',
-  'https://raw.githubusercontent.com/ortensa-adhamidhi/wotels/main/assets/Wotels/Wotels_Case_Study-9.png'
-];
-
-const stage = document.getElementById('stage');
-const placeholder = document.getElementById('placeholder');
-const img = document.getElementById('slideImg');
-const counter = document.getElementById('counter');
-const dotsWrap = document.getElementById('dots');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-let idx = 0;
-
-function render() {
-  if (SLIDES.length === 0) {
-    placeholder.style.display = 'flex'; img.style.display = 'none';
-    counter.textContent = '0 / 0'; prevBtn.style.display = 'none'; nextBtn.style.display = 'none'; dotsWrap.innerHTML = '';
-    return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReduced) {
+    document.querySelectorAll('.interactive-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100) + '%');
+        card.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100) + '%');
+      });
+    });
   }
-  placeholder.style.display = 'none'; img.style.display = 'block';
-  img.src = SLIDES[idx];
-  img.alt = 'Slide ' + (idx + 1) + ' of ' + SLIDES.length;
-  counter.textContent = (idx + 1) + ' / ' + SLIDES.length;
-  prevBtn.style.display = SLIDES.length > 1 ? 'flex' : 'none';
-  nextBtn.style.display = SLIDES.length > 1 ? 'flex' : 'none';
-  dotsWrap.innerHTML = '';
-  SLIDES.forEach((_, i) => {
-    const d = document.createElement('button');
-    d.className = 'dot' + (i === idx ? ' active' : '');
-    d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-    d.addEventListener('click', () => { idx = i; render(); });
-    dotsWrap.appendChild(d);
-  });
-}
-
-prevBtn.addEventListener('click', () => { idx = (idx - 1 + SLIDES.length) % SLIDES.length; render(); });
-nextBtn.addEventListener('click', () => { idx = (idx + 1) % SLIDES.length; render(); });
-document.addEventListener('keydown', (e) => {
-  if (SLIDES.length === 0) return;
-  if (e.key === 'ArrowLeft') { idx = (idx - 1 + SLIDES.length) % SLIDES.length; render(); }
-  if (e.key === 'ArrowRight') { idx = (idx + 1) % SLIDES.length; render(); }
-});
-
-render();
 </script>
 
 </body>

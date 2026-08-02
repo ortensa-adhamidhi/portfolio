@@ -10,12 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  /* ============================================
-     EDIT ME — swap these for your real details
-     - Contact links: search "EDIT ME" in this file
-     - Résumé download link
-     - Project case-study links (wotels.html / spd-dental.html) once built
-     ============================================ */
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
@@ -154,6 +149,8 @@
   .skill-tags { display: flex; flex-wrap: wrap; gap: 7px; }
   .skill-tag { font-size: 12px; padding: 5px 10px; border-radius: 20px; background: var(--bg-soft); border: 1px solid var(--line); color: var(--text-dim); }
   .skill-tag.growing { border-style: dashed; color: var(--accent-2); border-color: color-mix(in srgb, var(--accent-2) 40%, transparent); }
+  .skill-secondary { font-size: 12.5px; color: var(--muted); margin-top: 10px; line-height: 1.5; }
+  .skill-secondary strong { color: var(--text-dim); font-weight: 500; }
 
   /* ---------- WORK / PROJECTS ---------- */
   .work-item { background: var(--bg-card); border: 1px solid var(--line); border-radius: 14px; padding: 30px; margin-bottom: 22px; }
@@ -187,7 +184,7 @@
   .exp-role { font-weight: 600; margin-bottom: 8px; font-size: 15px; }
   .exp-list { list-style: none; font-size: 14px; color: var(--text-dim); }
   .exp-list li { position: relative; padding-left: 16px; margin-bottom: 6px; }
-  .exp-list li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+  .exp-list li::before { content: '•'; position: absolute; left: 0; color: var(--accent); }
   @media (max-width: 560px) { .exp-item { grid-template-columns: 1fr; gap: 6px; } }
 
   /* ---------- VOLUNTEER ---------- */
@@ -261,7 +258,7 @@
         <div class="badge"><span class="dot"></span> Available for freelance &amp; full-time work</div>
         <div class="eyebrow-label">Senior Data Analyst &amp; Analytics Engineer</div>
         <h1 class="hero-title">Ortensa builds data pipelines</h1>
-        <p class="hero-sub">4+ years building complete analytics infrastructures for organizations without dedicated data teams — API integration, ETL pipelines, and self-service dashboards across healthcare, hospitality, construction, and fintech.</p>
+        <p class="hero-sub">4+ years building complete analytics infrastructures for organizations without dedicated data teams: API integration, ETL pipelines, and self-service dashboards across healthcare, hospitality, construction, and fintech.</p>
         <div class="cta-row">
           <a href="#work" class="btn btn-primary">View work →</a>
           <a href="#contact" class="btn btn-ghost">Say hi 👋</a>
@@ -312,10 +309,9 @@
     <div class="wrap reveal">
       <div class="section-head"><h2 class="section-title">About</h2></div>
       <div class="about-body">
-        <p>I'm a senior data analyst and analytics engineer who builds the full analytics stack for organizations that don't have a dedicated data team — the API integration, the ETL pipeline, and the dashboard on top of it, end to end.</p>
-        <p>Day to day, I lead conversion rate optimization across 10 brands in 10 international markets: experimentation design, A/B testing, personalization, and automated ETL pipelines feeding real-time marketing dashboards. Alongside that, I run an independent freelance practice building analytics infrastructure for healthcare, hospitality, construction, and property development clients — integrating specialized APIs, consolidating data into Power BI, and delivering predictive models that clients actually use without needing me on call.</p>
-        <p>I started freelancing four years ago on a freelance platform, where I completed 700+ orders while holding a 4.8–4.9★ rating throughout. Since then I've moved toward direct, longer-term client relationships — the kind of end-to-end projects where I own everything from the API call to the last chart.</p>
-        <p style="color:var(--muted);font-size:14px;">Off the clock: still a little too enthusiastic about a well-normalized schema, and always up for the project that seems slightly too ambitious for the deadline.</p>
+        <p>I'm a senior data analyst and analytics engineer who builds the full analytics stack for organizations that don't have a dedicated data team: the API integration, the ETL pipeline, and the dashboard on top of it, end to end.</p>
+        <p>Day to day, I lead conversion rate optimization across 10 brands in 10 international markets: experimentation design, A/B testing, personalization, and automated ETL pipelines feeding real-time marketing dashboards. Alongside that, I run an independent freelance practice building analytics infrastructure for healthcare, hospitality, construction, and property development clients. That means integrating specialized APIs, consolidating data into Power BI, and delivering predictive models that clients actually use without needing me on call.</p>
+        <p>I started freelancing four years ago on a freelance platform, where I completed 700+ orders while holding a 4.8–4.9★ rating throughout. Since then I've moved toward direct, longer-term client relationships: the kind of end-to-end projects where I own everything from the API call to the last chart.</p>
         <div class="fact-row">
           <span class="fact-chip">📍 Tirana, Albania</span>
           <span class="fact-chip">💻 Remote</span>
@@ -331,7 +327,7 @@
       <div class="section-head">
         <span class="eyebrow-label">01 / Selected Work</span>
         <h2 class="section-title">Case studies</h2>
-        <span class="section-note">// added throughout this week — real dashboards run on synthetic data only</span>
+        <span class="section-note">// real dashboards, synthetic data only</span>
       </div>
 
       <div class="work-item">
@@ -343,16 +339,16 @@
         <div class="work-cols">
           <div class="work-col">
             <div class="work-col-label">Challenge</div>
-            <p>Wotels runs 18 properties plus head office, but occupancy, financial actuals, and budgets each lived in a different system — Mews, Primavera ERP, and Excel — with no unified view of performance by property or department.</p>
+            <p>Wotels runs 18 properties plus head office, but occupancy, financial actuals, and budgets each lived in three separate systems (Mews, Primavera ERP, and Excel), with no unified view of performance by property or department.</p>
           </div>
           <div class="work-col">
             <div class="work-col-label">What I did</div>
-            <p>Built a star-schema Power BI model unifying all three sources: custom M functions call the Mews API for occupancy, a SQL connection pulls P&L actuals from Primavera, and Excel budgets feed the same fact table — with DAX variance/YTD measures and row-level security by property.</p>
-          </div>
+            <p>Built a star-schema Power BI model unifying all three sources: custom M functions call the Mews API for occupancy, a SQL connection pulls P&L actuals from Primavera, and Excel budgets feed the same fact table. DAX handles the variance and YTD measures, with row-level security by property.</p>
+            </div>
           <div class="work-col">
             <div class="work-col-label">Result</div>
-            <p>Five linked reports — portfolio KPIs, Units and Overhead P&L, variance drill-downs, and executive summaries — replacing a manual monthly close across three systems.</p>
-          </div>
+            <p>Five linked reports: portfolio KPIs, Units and Overhead P&L, variance drill-downs, and executive summaries, replacing a manual monthly close across three systems.</p>
+            </div>
         </div>
         <div class="work-tags">
           <span class="work-tag">Power BI</span><span class="work-tag">Power Query (M)</span><span class="work-tag">DAX</span><span class="work-tag">Mews API</span><span class="work-tag">Primavera ERP (SQL)</span><span class="work-tag">Row-Level Security</span>
@@ -379,7 +375,7 @@
           </div>
           <div class="work-col">
             <div class="work-col-label">Result</div>
-            <p>Front-desk teams gained a direct, actionable list of unscheduled treatment value — full write-up and metrics coming as the case study is finished.</p>
+            <p>Front-desk teams gained a direct, actionable list of unscheduled treatment value. Full write-up and metrics are coming as the case study is finished.</p>
           </div>
         </div>
         <div class="work-tags">
@@ -398,7 +394,7 @@
         <div class="work-cols">
           <div class="work-col">
             <div class="work-col-label">Challenge</div>
-            <p>A multi-site clinical laboratory chain in Turkey had no consolidated view of turnaround time, sample rejection, or workload — each lab and collection point tracked performance in its own silo, with no way to see where TAT targets were being missed or why.</p>
+            <p>A multi-site clinical laboratory network had no consolidated view of turnaround time, sample rejection, or workload. Each lab and collection point tracked performance in its own silo, with no way to see where TAT targets were being missed or why.</p>
           </div>
           <div class="work-col">
             <div class="work-col-label">What I did</div>
@@ -417,6 +413,9 @@
         </div>
       </div>
 
+      <div style="text-align:center; margin-top: 34px;">
+      <a href="https://github.com/ortensa-adhamidhi" target="_blank" rel="noopener" class="btn btn-ghost">See all work on GitHub →</a>
+      </div>
       
     </div>
   </section>
@@ -469,53 +468,49 @@
         <h2 class="section-title">Skills &amp; tools</h2>
       </div>
       <div class="skill-grid">
-        <div class="skill-card interactive-card">
-          <h3><svg class="skill-icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 9l3 3-3 3M13 15h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Data Engineering &amp; Infrastructure</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">ETL Pipelines</span>
-            <span class="skill-tag">API Integration (REST/GraphQL)</span>
-            <span class="skill-tag">AWS (S3, EC2, Lambda)</span>
-            <span class="skill-tag">Snowflake</span>
-            <span class="skill-tag">Data Warehousing</span>
-            <span class="skill-tag">Workflow Automation</span>
-            <span class="skill-tag growing">Python OOP</span>
-          </div>
-        </div>
-        <div class="skill-card interactive-card">
-          <h3><svg class="skill-icon" viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="9" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="10" y="6" width="4" height="15" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="17" y="2" width="4" height="19" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"/></svg> BI &amp; Visualization</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Power BI</span>
-            <span class="skill-tag">DAX</span>
-            <span class="skill-tag">Power Query (M)</span>
-            <span class="skill-tag">Tableau</span>
-            <span class="skill-tag">Looker Studio</span>
-            <span class="skill-tag">Custom Visuals</span>
-            <span class="skill-tag">Row-Level Security</span>
-          </div>
-        </div>
-        <div class="skill-card interactive-card">
-          <h3><svg class="skill-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v4l3 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg> Analytics &amp; Experimentation</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">SQL</span>
-            <span class="skill-tag">Python (Pandas, NumPy)</span>
-            <span class="skill-tag">A/B Testing</span>
-            <span class="skill-tag">Cohort Analysis</span>
-            <span class="skill-tag">Predictive Modeling</span>
-            <span class="skill-tag">Statistical Analysis</span>
-          </div>
-        </div>
-        <div class="skill-card interactive-card">
-          <h3><svg class="skill-icon" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-2-2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg> Leadership &amp; Tools</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Team Management</span>
-            <span class="skill-tag">Stakeholder Management</span>
-            <span class="skill-tag">Technical Documentation</span>
-            <span class="skill-tag">Excel (VBA)</span>
-            <span class="skill-tag">Git / GitHub</span>
-            <span class="skill-tag">Tabular Editor</span>
-          </div>
-        </div>
-      </div>
+  <div class="skill-card interactive-card">
+    <h3><svg class="skill-icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 9l3 3-3 3M13 15h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Data Engineering </h3>
+    <div class="skill-tags">
+      <span class="skill-tag">ETL Pipelines</span>
+      <span class="skill-tag">API Integration</span>
+      <span class="skill-tag">Data Warehousing</span>
+      <span class="skill-tag">Workflow Automation</span>
+    </div>
+    <div class="skill-secondary"><strong>Also:</strong> AWS (S3, EC2, Lambda), Snowflake, Python OOP</div>
+  </div>
+
+  <div class="skill-card interactive-card">
+    <h3><svg class="skill-icon" viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="9" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="10" y="6" width="4" height="15" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="17" y="2" width="4" height="19" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"/></svg> BI &amp; Visualization</h3>
+    <div class="skill-tags">
+      <span class="skill-tag">Power BI</span>
+      <span class="skill-tag">DAX</span>
+      <span class="skill-tag">Power Query (M)</span>
+      <span class="skill-tag">Tableau</span>
+    </div>
+    <div class="skill-secondary"><strong>Also:</strong> Looker Studio, Custom Visuals, Row-Level Security</div>
+  </div>
+
+  <div class="skill-card interactive-card">
+    <h3><svg class="skill-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v4l3 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg> Analytics &amp; Experimentation</h3>
+    <div class="skill-tags">
+      <span class="skill-tag">SQL</span>
+      <span class="skill-tag">Python (Pandas, NumPy)</span>
+      <span class="skill-tag">A/B Testing</span>
+      <span class="skill-tag">Predictive Modeling</span>
+    </div>
+    <div class="skill-secondary"><strong>Also:</strong> Cohort Analysis, Statistical Analysis</div>
+  </div>
+
+  <div class="skill-card interactive-card">
+    <h3><svg class="skill-icon" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-2-2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg> Leadership &amp; Tools</h3>
+    <div class="skill-tags">
+      <span class="skill-tag">Team Management</span>
+      <span class="skill-tag">Stakeholder Management</span>
+      <span class="skill-tag">Git / GitHub</span>
+    </div>
+    <div class="skill-secondary"><strong>Also:</strong> Technical Documentation, Excel (VBA), Tabular Editor</div>
+  </div>
+</div>
     </div>
   </section>
 
@@ -530,7 +525,7 @@
         <div>
           <div class="exp-role">Senior Data Analyst — RUBIK Technologies LTD</div>
           <ul class="exp-list">
-            <li>Lead conversion rate optimization across 10 brands in 10 international markets — experimentation design, A/B testing, personalization, and stakeholder strategy.</li>
+            <li>Lead conversion rate optimization across 10 brands in 10 international markets : experimentation design, A/B testing, personalization, and stakeholder strategy.</li>
             <li>Built automated ETL pipelines feeding real-time marketing dashboards, cutting manual reporting by 60%.</li>
             <li>Initiatives contributed €14M in revenue uplift and a significant increase in lead generation.</li>
           </ul>
@@ -568,7 +563,7 @@
       <div class="volunteer-card">
         <div class="volunteer-icon">💛</div>
         <div>
-          <p style="color:var(--text-dim);max-width:520px;">I'm available for <strong style="color:var(--text)">pro bono data analyst work</strong> — organizations doing work that matters, on a volunteer basis. If your team needs someone to make sense of the numbers, I'd genuinely love to help.</p>
+          <p style="color:var(--text-dim);max-width:520px;">I'm available for <strong style="color:var(--text)">pro bono data analyst work</strong> for organizations doing work that matters, on a volunteer basis. If your team needs someone to make sense of the numbers, I'd genuinely love to help.</p>
           <div class="cause-row">
             <span class="cause-chip">🐾 Animal shelters</span>
             <span class="cause-chip">🏠 Homeless shelters</span>
@@ -596,6 +591,10 @@
         <a href="https://www.linkedin.com/in/ortensa-adhamidhi" target="_blank" rel="noopener" class="contact-link-card interactive-card">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8" y2="8"/><path d="M12 16v-3a2 2 0 0 1 4 0v3"/></svg></span>
           <span><span class="label">LinkedIn</span><span class="sub" style="display:block;">/in/ortensa-adhamidhi</span></span>
+        </a>
+        <a href="https://github.com/ortensa-adhamidhi" target="_blank" rel="noopener" class="contact-link-card interactive-card">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .3.2.66.79.55A10.5 10.5 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg></span>
+          <span><span class="label">GitHub</span><span class="sub" style="display:block;">@ortensa-adhamidhi</span></span>
         </a>
       </div>
     </div>

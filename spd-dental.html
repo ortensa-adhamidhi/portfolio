@@ -75,26 +75,44 @@
   .p-header { padding: 50px 0 32px; }
   .p-eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; color: var(--accent-2); text-transform: uppercase; margin-bottom: 14px; }
   h1.p-title { font-family: var(--font-mono); font-weight: 600; font-size: clamp(28px, 5vw, 40px); margin-bottom: 14px; }
-  .p-sub { color: var(--text-dim); font-size: 16px; max-width: 600px; }
+  .p-sub { color: var(--text-dim); font-size: 16px; max-width: 620px; }
 
-  .carousel { padding: 10px 0 48px; }
-  .stage { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: var(--bg); aspect-ratio: 16/9; }
-  .stage img { width: 100%; height: 100%; object-fit: contain; display: block; }
-  .stage .placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; color: var(--muted); font-family: var(--font-mono); font-size: 13px; text-align: center; padding: 20px; }
-  .nav-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: color-mix(in srgb, var(--bg) 70%, transparent); backdrop-filter: blur(4px); color: var(--text); font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s, border-color 0.15s; }
-  .nav-arrow:hover { background: var(--accent); border-color: var(--accent); color: #0E1016; }
-  .nav-prev { left: 14px; } .nav-next { right: 14px; }
-  .carousel-meta { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
-  .dots { display: flex; gap: 6px; flex-wrap: wrap; }
-  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--line); border: none; cursor: pointer; padding: 0; transition: background 0.15s, transform 0.15s; }
-  .dot.active { background: var(--accent); transform: scale(1.3); }
+  /* ---------- Narrative sections (same pattern as LAB IQ) ---------- */
+  .case-section { padding: 6px 0 40px; border-top: 1px solid var(--line); }
+  .case-section:first-of-type { border-top: none; padding-top: 10px; }
+  .case-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .case-heading { font-family: var(--font-mono); font-size: 19px; font-weight: 600; margin-bottom: 14px; }
+  .case-section p { font-size: 15px; color: var(--text-dim); max-width: 680px; }
+  .case-section p + p { margin-top: 12px; }
+  .case-section strong { color: var(--text); font-weight: 600; }
+  .case-section ul { margin-top: 14px; max-width: 680px; }
+  .case-section li { list-style: none; position: relative; padding-left: 20px; font-size: 15px; color: var(--text-dim); margin-bottom: 10px; }
+  .case-section li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+  .case-section li strong { display: block; color: var(--text); font-weight: 600; margin-bottom: 2px; }
 
-  .summary { padding: 10px 0 40px; border-top: 1px solid var(--line); }
-  .summary p { font-size: 16px; color: var(--text-dim); max-width: 680px; }
-  .summary strong { color: var(--text); font-weight: 600; }
+  /* ---------- Dashboard screenshots, shown inline instead of a carousel ---------- */
+  .case-image { margin: 20px 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--bg-soft); }
+  .case-image img { width: 100%; display: block; }
+  .case-image-caption { font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin-top: 8px; }
 
-  .tech-stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 26px 0; }
+  /* ---------- Compact data model diagram ---------- */
+  .diagram-box { margin: 22px 0 8px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg-card); padding: 20px; }
+ .diagram-box svg { width: 100%; height: auto; display: block; }
+ .dg-rect { fill: var(--bg-soft); stroke: var(--line); stroke-width: 1; }
+ .dg-line { stroke: var(--line); stroke-width: 1.3; fill: none; }
+ .dg-label { font-family: var(--font-mono); font-size: 12px; text-anchor: middle; dominant-baseline: middle; }
+ .dg-fact { fill: var(--accent); font-weight: 600; }
+ .dg-dim { fill: var(--text-dim); font-weight: 600; }
+ .diagram-legend { display: flex; gap: 18px; margin-top: 14px; font-family: var(--font-mono); font-size: 11.5px; color: var(--muted); }
+ .diagram-legend span { display: inline-flex; align-items: center; gap: 6px; }
+ .diagram-legend .dot { width: 8px; height: 8px; border-radius: 2px; }
+ .diagram-legend .dot.fact { background: var(--accent); }
+ .diagram-legend .dot.dim { background: var(--text-dim); }
+
+ .tech-stack { display: flex; flex-wrap: wrap; gap: 8px; padding: 6px 0 30px; }
   .tech-tag { font-family: var(--font-mono); font-size: 12px; padding: 6px 12px; border-radius: 20px; border: 1px solid var(--line); color: var(--text-dim); background: var(--bg); }
+
+  .pbix-note { font-size: 13px; color: var(--muted); max-width: 680px; margin-bottom: 20px; }
 
   .p-actions { display: flex; gap: 14px; flex-wrap: wrap; padding-bottom: 60px; }
   .btn { font-family: var(--font-mono); font-size: 13px; padding: 12px 22px; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.15s, background 0.15s, border-color 0.15s; border: 1px solid transparent; }
@@ -126,31 +144,105 @@
   <div class="wrap">
     <div class="p-eyebrow">Healthcare · Power BI · Curve Dental API</div>
     <h1 class="p-title">SPD Dental — Multi-Branch Operations Dashboard</h1>
-    <p class="p-sub">A star-schema Power BI platform built on custom Power Query (M) against the Curve Dental API, surfacing production, appointments, and unscheduled treatment value across branches. All figures shown are synthetic — no real patient, provider, or financial data.</p>
+    <p class="p-sub">A star-schema Power BI platform built on custom Power Query (M) against the Curve Dental API, surfacing production, appointments, and unscheduled treatment value across branches. All figures shown are synthetic; no real patient, provider, or financial data is included.</p>
   </div>
 </header>
 
-<section class="carousel">
-  <div class="wrap">
-    <div class="stage" id="stage">
-      <div class="placeholder" id="placeholder">📊 Drop your exported slide images into the SLIDES array<br>near the bottom of this file to replace this placeholder.</div>
-      <img id="slideImg" alt="" style="display:none;">
-      <button class="nav-arrow nav-prev" id="prevBtn" aria-label="Previous slide">←</button>
-      <button class="nav-arrow nav-next" id="nextBtn" aria-label="Next slide">→</button>
-    </div>
-    <div class="carousel-meta">
-      <span id="counter">0 / 0</span>
-      <div class="dots" id="dots"></div>
-    </div>
-  </div>
-</section>
+<section class="wrap">
 
-<section class="summary">
-  <div class="wrap">
-    <p>SPD Dental's front-desk teams had no visibility into treatment plans that were proposed but never scheduled, and each branch's data lived in its own silo inside the practice management system — leaving recoverable revenue untracked across locations. I built a pipeline pulling directly from the <strong>Curve Dental API</strong> via custom <strong>Power Query (M)</strong> with OAuth2 client-credentials auth, token refresh, and paginated pulls, modeled into a star schema with fact tables for appointments, ledger entries, treatment plans, and notes joined to patient, staff, clinic, and date dimensions. On top of that sit DAX measures for production, reappointment rate, treatment-plan acceptance, and no-show tracking — plus a dedicated unscheduled-treatment tracker that gives front-desk staff a direct, actionable call list.</p>
+  <div class="case-section">
+    <div class="case-label">01 / The Challenge</div>
+    <h2 class="case-heading">Recoverable revenue was invisible across branches</h2>
+    <p>SPD Dental's practice management software tracked patients, appointments, treatment plans, and ledger transactions, but had no reporting layer connecting any of it across locations. Each branch's data lived in its own silo inside the practice management system.</p>
+    <p>The biggest gap: front-desk teams had no visibility into treatment plans that were proposed but never scheduled. That's recoverable revenue sitting untracked, branch by branch, with no way to see it without manually cross-referencing systems.</p>
   </div>
 
-  <div class="wrap tech-stack">
+  <div class="case-section">
+    <div class="case-label">02 / Approach</div>
+    <h2 class="case-heading">A direct API pipeline into a governed data model</h2>
+    <p>I built a pipeline pulling directly from the <strong>Curve Dental API</strong> using custom <strong>Power Query (M)</strong>, with OAuth2 client-credentials authentication, token refresh, and paginated pulls handled in code. No manual exports, no CSV wrangling.</p>
+    <p>The data is modeled into a star schema: <strong>Appointments</strong>, <strong>LedgerEntries</strong>, <strong>TreatmentPlans</strong>, and <strong>Notes</strong> as fact tables, joined against <strong>Patients</strong>, <strong>Staff</strong>, and <strong>Clinics</strong> dimensions plus a standard date table. DAX measures on top handle production, reappointment rate, treatment-plan acceptance, and no-show tracking.</p>
+
+    <div class="diagram-box">
+  <svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg">
+    <!-- connectors -->
+    <line class="dg-line" x1="320" y1="44" x2="320" y2="60"/>
+    <line class="dg-line" x1="90" y1="60" x2="550" y2="60"/>
+    <line class="dg-line" x1="90" y1="60" x2="90" y2="80"/>
+    <line class="dg-line" x1="320" y1="60" x2="320" y2="80"/>
+    <line class="dg-line" x1="550" y1="60" x2="550" y2="80"/>
+    <line class="dg-line" x1="90" y1="114" x2="90" y2="150"/>
+    <line class="dg-line" x1="320" y1="114" x2="320" y2="150"/>
+    <line class="dg-line" x1="550" y1="114" x2="550" y2="150"/>
+    <line class="dg-line" x1="320" y1="184" x2="320" y2="220"/>
+
+    <!-- row 1: date dimension -->
+    <rect class="dg-rect" x="260" y="10" width="120" height="34" rx="6"/>
+    <text class="dg-label dg-dim" x="320" y="28">TableDate</text>
+
+    <!-- row 2 -->
+    <rect class="dg-rect" x="20" y="80" width="140" height="34" rx="6"/>
+    <text class="dg-label dg-dim" x="90" y="98">Patients</text>
+
+    <rect class="dg-rect" x="250" y="80" width="140" height="34" rx="6"/>
+    <text class="dg-label dg-fact" x="320" y="98">Appointments</text>
+
+    <rect class="dg-rect" x="480" y="80" width="140" height="34" rx="6"/>
+    <text class="dg-label dg-dim" x="550" y="98">Staff</text>
+
+    <!-- row 3 -->
+    <rect class="dg-rect" x="20" y="150" width="140" height="34" rx="6"/>
+    <text class="dg-label dg-fact" x="90" y="168">Notes</text>
+
+    <rect class="dg-rect" x="250" y="150" width="140" height="34" rx="6"/>
+    <text class="dg-label dg-fact" x="320" y="168">LedgerEntries</text>
+
+    <rect class="dg-rect" x="480" y="150" width="140" height="34" rx="6"/>
+    <text class="dg-label dg-dim" x="550" y="168">Clinics</text>
+
+    <!-- row 4 -->
+    <rect class="dg-rect" x="235" y="220" width="170" height="34" rx="6"/>
+    <text class="dg-label dg-fact" x="320" y="238">TreatmentPlans</text>
+  </svg>
+
+  <div class="diagram-legend">
+    <span><span class="dot fact"></span> Fact table</span>
+    <span><span class="dot dim"></span> Dimension table</span>
+  </div>
+</div>
+
+
+    <div class="case-image">
+      <!-- EDIT ME: confirm this filename matches whatever you upload to the repo's /assets folder -->
+      <img src="https://raw.githubusercontent.com/ortensa-adhamidhi/spd-dental-case-study/main/assets/appointments-dashboard.png" alt="SPD Dental appointments and production dashboard">
+    </div>
+    <div class="case-image-caption">Appointments &amp; production overview, synthetic data</div>
+  </div>
+
+  <div class="case-section">
+    <div class="case-label">03 / What's In the Platform</div>
+    <h2 class="case-heading">From practice overview to a direct call list</h2>
+    <p>Three views cover the day-to-day work, from a portfolio-level read on the practice down to a list a front-desk employee can act on immediately:</p>
+    <ul>
+      <li><strong>Practice Overview</strong> production, appointments, and patient acquisition across all branches in one place</li>
+      <li><strong>Appointments &amp; Treatment Plans</strong> appointment volume, treatment-plan acceptance rate, and no-show or cancellation tracking</li>
+      <li><strong>Unscheduled Treatment Tracker</strong> a dedicated table surfacing proposed-but-not-booked treatment value, built as a direct call list for front-desk staff</li>
+    </ul>
+
+    <div class="case-image">
+      <!-- EDIT ME: confirm this filename matches whatever you upload to the repo's /assets folder -->
+      <img src="https://raw.githubusercontent.com/ortensa-adhamidhi/spd-dental-case-study/main/assets/upcomming-appointments.png" alt="SPD Dental unscheduled treatment tracker">
+    </div>
+    <div class="case-image-caption">Unscheduled treatment tracker, synthetic data</div>
+  </div>
+
+  <div class="case-section">
+    <div class="case-label">04 / Result</div>
+    <h2 class="case-heading">From no visibility to a direct action list</h2>
+    <p>Front-desk teams went from no visibility into unscheduled treatment value to a governed, self-service Power BI environment covering appointments, production, and patient acquisition across every branch. What used to be manual, branch-by-branch spreadsheet reporting now runs from a single model everyone pulls from.</p>
+  </div>
+
+  <div class="wrap tech-stack" style="padding-left:0;padding-right:0;">
     <span class="tech-tag">Power BI</span>
     <span class="tech-tag">Power Query (M)</span>
     <span class="tech-tag">DAX</span>
@@ -159,11 +251,14 @@
     <span class="tech-tag">Star Schema</span>
   </div>
 
-  <div class="wrap p-actions">
-    <a href="https://github.com/ortensa-adhamidhi/spd-dental-case-study" class="btn btn-primary" target="_blank" rel="noopener">View on GitHub →</a>
-     
-    <a href="index.html#work" class="btn btn-ghost">← Back to work</a>
+  <div style="border-top:1px solid var(--line);padding-top:30px;">
+    <p class="pbix-note">The full .pbix file is available on request while this case study is being finished.</p>
+    <div class="p-actions" style="padding-bottom:60px;">
+      <a href="https://github.com/ortensa-adhamidhi/spd-dental-case-study" class="btn btn-primary" target="_blank" rel="noopener">View on GitHub →</a>
+      <a href="index.html#work" class="btn btn-ghost">← Back to work</a>
+    </div>
   </div>
+
 </section>
 
 <footer>© <span id="year"></span> Ortensa Adhamidhi</footer>
@@ -171,7 +266,6 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Theme toggle (syncs with the same key used on the main site)
   const themeToggle = document.getElementById('themeToggle');
   const themeIcon = document.getElementById('themeIcon');
   const sunPath = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
@@ -190,57 +284,16 @@
     localStorage.setItem('ortensa-theme', next);
   });
 
-  // Exported slide images from the SPD Dental deck (in /assets/spd-dental/)
-const SLIDES = [
-  'https://raw.githubusercontent.com/ortensa-adhamidhi/spd-dental-case-study/main/assets/spd-dental/01.png',
-  'https://raw.githubusercontent.com/ortensa-adhamidhi/spd-dental-case-study/main/assets/spd-dental/02.png',
-  'https://raw.githubusercontent.com/ortensa-adhamidhi/spd-dental-case-study/main/assets/spd-dental/03.png',
-  'https://raw.githubusercontent.com/ortensa-adhamidhi/spd-dental-case-study/main/assets/spd-dental/04.png',
-  'https://raw.githubusercontent.com/ortensa-adhamidhi/spd-dental-case-study/main/assets/spd-dental/05.png',
-  'https://raw.githubusercontent.com/ortensa-adhamidhi/spd-dental-case-study/main/assets/spd-dental/06.png',
-  'https://raw.githubusercontent.com/ortensa-adhamidhi/spd-dental-case-study/main/assets/spd-dental/07.png',
-  'https://raw.githubusercontent.com/ortensa-adhamidhi/spd-dental-case-study/main/assets/spd-dental/08.png'
-];
-
-  const stage = document.getElementById('stage');
-  const placeholder = document.getElementById('placeholder');
-  const img = document.getElementById('slideImg');
-  const counter = document.getElementById('counter');
-  const dotsWrap = document.getElementById('dots');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  let idx = 0;
-
-  function render() {
-    if (SLIDES.length === 0) {
-      placeholder.style.display = 'flex'; img.style.display = 'none';
-      counter.textContent = '0 / 0'; prevBtn.style.display = 'none'; nextBtn.style.display = 'none'; dotsWrap.innerHTML = '';
-      return;
-    }
-    placeholder.style.display = 'none'; img.style.display = 'block';
-    img.src = SLIDES[idx]; img.alt = 'Slide ' + (idx + 1) + ' of ' + SLIDES.length;
-    counter.textContent = (idx + 1) + ' / ' + SLIDES.length;
-    prevBtn.style.display = SLIDES.length > 1 ? 'flex' : 'none';
-    nextBtn.style.display = SLIDES.length > 1 ? 'flex' : 'none';
-    dotsWrap.innerHTML = '';
-    SLIDES.forEach((_, i) => {
-      const d = document.createElement('button');
-      d.className = 'dot' + (i === idx ? ' active' : '');
-      d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-      d.addEventListener('click', () => { idx = i; render(); });
-      dotsWrap.appendChild(d);
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReduced) {
+    document.querySelectorAll('.interactive-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100) + '%');
+        card.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100) + '%');
+      });
     });
   }
-
-  prevBtn.addEventListener('click', () => { idx = (idx - 1 + SLIDES.length) % SLIDES.length; render(); });
-  nextBtn.addEventListener('click', () => { idx = (idx + 1) % SLIDES.length; render(); });
-  document.addEventListener('keydown', (e) => {
-    if (SLIDES.length === 0) return;
-    if (e.key === 'ArrowLeft') { idx = (idx - 1 + SLIDES.length) % SLIDES.length; render(); }
-    if (e.key === 'ArrowRight') { idx = (idx + 1) % SLIDES.length; render(); }
-  });
-
-  render();
 </script>
 
 </body>
